@@ -8,7 +8,7 @@ export class AlertsProcessor {
   @Process('low-stock')
   async handleLowStock(job: Job<LowStockJob>) {
     const { itemName, quantity, minQuantity, unit } = job.data;
-    this.logger.warn(`🔴 LOW STOCK ALERT: "${itemName}" — ${quantity}${unit} remaining (reorder at ${minQuantity}${unit})`);
+    this.logger.warn(` LOW STOCK ALERT: "${itemName}" — ${quantity}${unit} remaining (reorder at ${minQuantity}${unit})`);
     // In production: send email/SMS/Slack notification here
     return { alerted: true };
   }
